@@ -28,19 +28,8 @@ def test_find_links_from_trip():
     conn = db_connection_handler.get_connection()
     link_repository = LinksRepository(conn)
 
-    links = link_repository.find_links_from_trip(link_id)
+    response = link_repository.find_links_from_trip(trip_id)
     #print(f'\n\nTrip_id: {trip_id}\n')
-    assert isinstance(links, list)
-    assert isinstance(links, tuple)
-    print(links)
-
-'''
-@pytest.mark.skip(reason="Interacao com o banco")
-def test_update_trip_status():
-    conn = db_connection_handler.get_connection()
-    trips_repository = TripsRepository(conn)
-
-    trips_repository.update_trip_status(trip_id)
-'''
-
-
+    assert isinstance(response, list)
+    assert isinstance(response[0], tuple)
+    #print(response)

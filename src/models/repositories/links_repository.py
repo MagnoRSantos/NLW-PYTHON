@@ -26,7 +26,7 @@ class LinksRepository:
         cursor = self.__conn.cursor()
         cursor.execute(
             '''
-                SELECT * FROM links WHERE id = ?
+                SELECT * FROM links WHERE trip_id = ?
             ''', (trip_id,)
         )
         links = cursor.fetchall()
